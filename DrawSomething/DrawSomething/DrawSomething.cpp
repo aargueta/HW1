@@ -37,13 +37,18 @@ vector<unsigned int>	sceneTriIndices;
 vector<unsigned int>	sceneQuadIndices;
 
 struct ObjImporter::SceneObject object;
-float light0Pos[] = {0.0f, 0.0f, 0.0f, 0.0f};
-float light1Pos[] = {0.0f, 0.0f, 0.0f, 0.0f};
-float light2Pos[] = {0.0f, 0.0f, 0.0f, 0.0f};
+float lightPos[] = {40.0f, 0.0f, 0.0f, 0.0f, 
+					0.0f, 40.0f, 0.0f, 0.0f,
+					0.0f, 0.0f, 40.0f, 0.0f};
 	
-float light0Col[] = {1.0f, 0.0f, 0.0f, 1.0f};
-float light1Col[] = {0.0f, 1.0f, 0.0f, 1.0f};
-float light2Col[] = {0.0f, 0.0f, 1.0f, 1.0f};
+float lightCol[] = {0.3f, 0.2f, 0.2f, 1.0f, 
+					0.1f, 0.2f, 0.1f, 1.0f,
+					0.02f, 0.02f, 0.1f, 1.0f};
+
+float lightTime[] = {0.0f, 0.0f, 0.0f};
+float lightSpeed[] = {0.01f, 0.02f, 0.05f};
+
+float lightSpec[4] = {1.0, 1.0, 1.0, 1.0};
 
 
 void init( void )
@@ -51,7 +56,7 @@ void init( void )
 	printf( "OpenGL version: %s\n", (char*)glGetString(GL_VERSION));
 	printf( "OpenGL renderer: %s\n", (char*)glGetString(GL_RENDERER));
 
-	float ambient_color[]={0.5f, 0.58f, 0.5f, 1.0f};
+	float ambient_color[]={0.3f, 0.3f, 0.3f, 1.0f};
 
 	poseMode = false;
 	camX = 40.0f;
@@ -59,32 +64,64 @@ void init( void )
 	camV = 0.0f;
 	camZoom = 40.0f;
 
-	glLightfv(GL_LIGHT0, GL_POSITION, light0Pos);
-	glLightfv(GL_LIGHT0, GL_DIFFUSE, light0Col);
-	glLightfv(GL_LIGHT1, GL_POSITION, light1Pos);
-	glLightfv(GL_LIGHT1, GL_DIFFUSE, light1Col);
-	glLightfv(GL_LIGHT2, GL_POSITION, light2Pos);
-	glLightfv(GL_LIGHT2, GL_DIFFUSE, light2Col);
+	glLightfv(GL_LIGHT0, GL_POSITION, lightPos);
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, lightCol);
+	//glLightfv(GL_LIGHT0, GL_SPECULAR, lightSpec);
+
+	glLightfv(GL_LIGHT1, GL_POSITION, &lightPos[4]);
+	glLightfv(GL_LIGHT1, GL_DIFFUSE, &lightCol[4]);
+	//glLightfv(GL_LIGHT0, GL_SPECULAR, lightSpec);
+
+	glLightfv(GL_LIGHT2, GL_POSITION, &lightPos[8]);
+	glLightfv(GL_LIGHT2, GL_DIFFUSE, &lightCol[8]);
+	//glLightfv(GL_LIGHT0, GL_SPECULAR, lightSpec);
+
 	glLightModelfv(GL_LIGHT_MODEL_AMBIENT, ambient_color);
 
 	glShadeModel(GL_SMOOTH);
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
 	glEnable(GL_LIGHT1);
-	glEnable(GL_LIGHT2);
+	//glEnable(GL_LIGHT2);
 	glEnable(GL_DEPTH_TEST);
 }
 
-void initThreads()
-{
-    ////initialize mutex
+void initThreads(){
 	pthread_mutex_init(&mutex,0);
+}
 
+void destroyThreads(){
+	pthread_mutex_destroy(&mutex);
+}
+
+void* threadedLighting(void* tid){
+	int threadID = *((int*)(&tid));
+	int lightOffset = 4 * threadID;
+	for(int i = 0; i < 3; i++){
+		lightPos[lightOffset + i] = ((threadID + i % 1)? sin(lightTime[threadID]) : cos(lightTime[threadID])) * 40.0f;
+	}
+	
+	/*pthread_mutex_lock(&mutex);
+	printf("L%d: [%f\t%f\t%f]\n", threadID, lightPos[lightOffset], lightPos[lightOffset + 1], lightPos[lightOffset + 2]);
+	pthread_mutex_unlock(&mutex);*/
+	lightTime[threadID] += lightSpeed[threadID];
+	return 0;
+}
+
+void update(){
+	pthread_t threads[threadNum];
+	for(int tid = 0; tid < threadNum; tid++){
+		int rc = pthread_create(&threads[tid], NULL, threadedLighting, (void*)tid);   
+		if(rc){
+			printf("Cannot create thread %d!\n", tid);
+		}
+	}
 }
 
 void timer(int value)
 {
-	//update();
+	if(!poseMode)
+		update();
 	glutPostRedisplay();
 	glutTimerFunc(1000/60, timer, windowId);
 }
@@ -95,6 +132,13 @@ void display( void )
 	glClearDepth(1.0f);
 	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 	glMatrixMode(GL_MODELVIEW);
+	
+	glLightfv(GL_LIGHT0, GL_POSITION, lightPos);
+	//glLightfv(GL_LIGHT0, GL_DIFFUSE, lightCol);
+	glLightfv(GL_LIGHT1, GL_POSITION, &lightPos[4]);
+	//glLightfv(GL_LIGHT1, GL_DIFFUSE, &lightCol[4]);
+	//glLightfv(GL_LIGHT2, GL_POSITION, &lightPos[8]);
+	//glLightfv(GL_LIGHT2, GL_DIFFUSE, &lightCol[8]);
 
 	glLoadIdentity();
 	gluLookAt(camX, camV, camY, 0, 0, 0, 0, 1.0f, 0);
@@ -102,15 +146,6 @@ void display( void )
 	glEnableClientState(GL_NORMAL_ARRAY);
 	glEnableClientState(GL_VERTEX_ARRAY);
 
-	//glNormalPointer(GL_FLOAT, 0, &object.normals[0]);// &sceneNormals[0]);
-	//glVertexPointer(3, GL_FLOAT, 0, &object.vertices[0]);// &sceneVertices[0]);
-
-	//if( object.triIndices->size() /*sceneTriIndices.size()*/ > 0)
-	//	glDrawElements(GL_TRIANGLES, object.triIndices->size() /* sceneTriIndices.size()*/, GL_UNSIGNED_INT, &object.triIndices[0]); //&sceneTriIndices[0]);
-
-	//if( object.quadIndices->size() /*sceneQuadIndices.size()*/ > 0)
-	//	glDrawElements(GL_QUADS, object.quadIndices->size() /*sceneQuadIndices.size()*/, GL_UNSIGNED_INT, &object.quadIndices[0]); //&sceneQuadIndices[0]);
-		
 	glNormalPointer(GL_FLOAT, 0, &sceneNormals[0]);
 	glVertexPointer(3, GL_FLOAT, 0, &sceneVertices[0]);
 
@@ -193,7 +228,7 @@ int main( int argc, char** argv ){
 	windowId = glutCreateWindow( "Draw Something" );
 	glutSetWindow(windowId);
 
-	glutTimerFunc(1000/60,timer,windowId);
+	glutTimerFunc(1000/60, timer, windowId);
 	glutDisplayFunc( display );
 	glutReshapeFunc( reshape );
 	glutKeyboardFunc( keyboard );
@@ -227,5 +262,6 @@ int main( int argc, char** argv ){
 
 	glutMainLoop();
 
+	destroyThreads();
 	return 0;
 }
