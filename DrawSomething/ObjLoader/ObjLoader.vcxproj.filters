@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\Exception.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\Image.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\KeyboardController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\Logger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\Mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\MeshViewer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\MouseController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\MtlParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\ObjMeshParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\PolygonFace.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\SceneObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\State.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\Texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\Vertex.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\WindowManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\Camera.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\Exception.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\Image.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\KeyboardController.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\Logger.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\Material.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\Mesh.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\MeshViewer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\MouseController.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\MtlActions.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\MtlGrammar.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\MtlMapManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\MtlParser.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\ObjMeshParser.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\ObjParser.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\PolygonFace.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\SceneObject.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\State.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\Texture.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\Vertex.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\WindowManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\stable.pch" />
+  </ItemGroup>
+</Project>

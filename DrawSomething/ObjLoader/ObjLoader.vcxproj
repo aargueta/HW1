@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{64C3A375-40F1-4021-98A1-D78AF1DEC65B}</ProjectGuid>
+    <RootNamespace>ObjLoader</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>D:\Program Files\boost\boost_1_55_0</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\Camera.cpp" />
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\Exception.cpp" />
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\Image.cpp" />
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\KeyboardController.cpp" />
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\Logger.cpp" />
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\main.cpp" />
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\Mesh.cpp" />
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\MeshViewer.cpp" />
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\MouseController.cpp" />
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\MtlParser.cpp" />
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\ObjMeshParser.cpp" />
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\PolygonFace.cpp" />
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\SceneObject.cpp" />
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\State.cpp" />
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\Texture.cpp" />
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\Vertex.cpp" />
+    <ClCompile Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\WindowManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\Camera.hpp" />
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\Exception.hpp" />
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\Image.hpp" />
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\KeyboardController.hpp" />
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\Logger.hpp" />
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\Material.hpp" />
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\Mesh.hpp" />
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\MeshViewer.hpp" />
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\MouseController.hpp" />
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\MtlActions.hpp" />
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\MtlGrammar.hpp" />
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\MtlMapManager.hpp" />
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\MtlParser.hpp" />
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\ObjMeshParser.hpp" />
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\ObjParser.hpp" />
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\PolygonFace.hpp" />
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\SceneObject.hpp" />
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\State.hpp" />
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\Texture.hpp" />
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\Vertex.hpp" />
+    <ClInclude Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\WindowManager.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\TooL-v0.2.5-src.tar.bz2.tar.bz2\Sources\stable.pch" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
